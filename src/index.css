@@ -35,3 +35,21 @@ h3{
 a{
   color: rgb(56, 56, 56);
 }
+
+.splide .splide__track{
+  padding-bottom:
+   10px !important;
+}
+
+.splide .splide__arrow--prev {
+  left: -50px; /* Mova para fora do slider na direção esquerda */
+  top: 50%;    /* Centraliza verticalmente */
+  transform: translateY(-50%);
+}
+
+/* Move a seta da direita (avançar) */
+.splide .splide__arrow--next {
+  right: -50px; /* Mova para fora do slider na direção direita */
+  top: 50%;     /* Centraliza verticalmente */
+  transform: translateY(-50%);
+}

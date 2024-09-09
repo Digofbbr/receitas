@@ -10,10 +10,13 @@ function App() {
     <div className="App">
 		<BrowserRouter>
 			<Nav>
-				<GiKnifeFork />
-				<Logo to={'/'}>Delicious</Logo>
+				<LogoWrapper>
+					<GiKnifeFork />
+					<Logo to={'/'}>Delicious</Logo>
+				</LogoWrapper>
+				<Search />
 			</Nav>
-			<Search />
+			{/* <Search /> */}
       		<Category />
       		<Pages />
 		</BrowserRouter>
@@ -22,6 +25,12 @@ function App() {
   );
 }
 
+const LogoWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 5px;
+`
+
 const Logo = styled(Link)`
 	text-decoration: none;
 	font-size: 1.5rem;
@@ -29,9 +38,9 @@ const Logo = styled(Link)`
 	font-family: 'Roboto', cursive;
 `
 const Nav = styled.div`
-	padding: 4rem 0rem;
+	padding: 4rem 0rem 3rem;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	svg{
 		font-size: 2rem;

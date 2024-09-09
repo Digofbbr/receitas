@@ -1,4 +1,5 @@
 import {FaPizzaSlice, FaHamburger} from 'react-icons/fa'
+import { SiAeromexico } from "react-icons/si";
 import {GiNoodles, GiChopsticks} from 'react-icons/gi'
 import styled from "styled-components"
 import {NavLink} from 'react-router-dom'
@@ -21,6 +22,10 @@ function Category() {
         <SLink to={'/cuisine/Japanese'}>
             <GiChopsticks/>
             <h4>Japonesa</h4>
+        </SLink>
+        <SLink to={'/cuisine/Mexican'}>
+            <SiAeromexico/>
+            <h4>Mexicana</h4>
         </SLink>
     </List>
   )
@@ -46,8 +51,10 @@ const SLink = styled(NavLink)`
     height: 6rem;
     cursor: pointer;
     transform: scale(0.8);
+    transition: transform 0.3s ease, transform 0.5s ease-in-out;
 
     h4{
+        margin-top: 5px;
         color: white;
         font-size: 0.8rem;
     }
@@ -56,7 +63,10 @@ const SLink = styled(NavLink)`
         color: white;
         font-size: 1.5rem;
     }
-
+    &:hover{
+        background: linear-gradient(to right,#f7cbb0,#dd6878);
+        transform: translateY(-5px) scale(0.8);
+    }
     &.active{
         background: linear-gradient(to right, #f27121, #e94057);
     }

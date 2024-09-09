@@ -23,7 +23,6 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-    margin: 0rem 20rem;
     position: relative;
     input{
         border: none;
@@ -36,6 +35,7 @@ const FormStyle = styled.form`
         width: 100%;
     }
     svg{
+        font-size: 16px !important;
         position: absolute;
         top: 50%;
         left: 0%;
