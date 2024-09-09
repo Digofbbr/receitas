@@ -4,22 +4,24 @@ import Search from './components/Search'
 import {BrowserRouter, Link} from 'react-router-dom'
 import styled from "styled-components";
 import {GiKnifeFork} from 'react-icons/gi'
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
-		<BrowserRouter>
-			<Nav>
-				<LogoWrapper>
-					<GiKnifeFork />
-					<Logo to={'/'}>Delicious</Logo>
-				</LogoWrapper>
-				<Search />
-			</Nav>
-			{/* <Search /> */}
-      		<Category />
-      		<Pages />
-		</BrowserRouter>
+			<BrowserRouter>
+				<Nav>
+					<LogoWrapper>
+						<GiKnifeFork />
+						<Logo to={'/'}>Delicious</Logo>
+					</LogoWrapper>
+					<Search />
+				</Nav>
+				{/* <Search /> */}
+				<Category />
+				<Pages />
+				<Footer />
+			</BrowserRouter>
     </div>
 
   );
