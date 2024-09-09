@@ -3,30 +3,38 @@ import { SiAeromexico } from "react-icons/si";
 import {GiNoodles, GiChopsticks} from 'react-icons/gi'
 import styled from "styled-components"
 import {NavLink} from 'react-router-dom'
+import { GiChocolateBar } from "react-icons/gi";
+
+
 
 function Category() {
   return (
     <List>
         <SLink to={'/cuisine/Italian'}>
             <FaPizzaSlice/>
-            <h4>Italiana</h4>
+            <h4>Italian</h4>
         </SLink>
         <SLink to={'/cuisine/American'}>
             <FaHamburger/>
-            <h4>Americana</h4>
+            <h4>American</h4>
         </SLink>
         <SLink to={'/cuisine/Thai'}>
             <GiNoodles/>
-            <h4>Tailandesa</h4>
+            <h4>Thai</h4>
         </SLink>
         <SLink to={'/cuisine/Japanese'}>
             <GiChopsticks/>
-            <h4>Japonesa</h4>
+            <h4>Japanese</h4>
         </SLink>
         <SLink to={'/cuisine/Mexican'}>
             <SiAeromexico/>
-            <h4>Mexicana</h4>
+            <h4>Mexican</h4>
         </SLink>
+        <SLink to={'/type/dessert'}>
+            <GiChocolateBar/>
+            <h4>Dessert</h4>
+        </SLink>
+
     </List>
   )
 }
