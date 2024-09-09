@@ -67,7 +67,7 @@ function Popular() {
                                                     </li>
                                                     <li className="meal-attribute star-wrapper">
                                                         <FaRegStar className="star"/>
-                                                        <span>Spoon Score <strong>{recipe.spoonacularScore.toFixed(2)}</strong></span>
+                                                        <span>Spoon Score: <strong>{recipe.spoonacularScore.toFixed(2)}</strong></span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -160,7 +160,7 @@ const Card = styled.div`
         font-size: 16px;
         display: flex;
         align-items: center;
-        gap: 1.6rem;
+        gap: 1rem;
     }
 
     .meal-icon {

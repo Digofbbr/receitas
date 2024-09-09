@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import '@splidejs/react-splide/css'
+import { FcClock } from "react-icons/fc";
+import { FaRegStar } from "react-icons/fa";
 
 
 function Veggie() {
@@ -46,9 +48,24 @@ function Veggie() {
                             <SplideSlide key={recipe.id}>
                                     <Card>
                                         <Link to={'/recipe/' + recipe.id}>
-                                            <p>{recipe.title}</p>
-                                            <img src={recipe.image} alt={recipe.title} />
-                                            <Gradient/>
+                                            <img className="meal-image" src={recipe.image} alt={recipe.title} />
+                                            <div className="meal-content">
+                                                <div className="meal-tags">
+                                                    {recipe.vegetarian && <span className="tag tag--vegetarian">Vegetarian</span>}
+                                                    {recipe.vegan && <span className="tag tag--vegan">Vegan</span>}
+                                                </div>
+                                                <p className="meal-title"><p>{recipe.title}</p></p>
+                                                <ul className="meal-attributes">
+                                                    <li className="meal-attribute">
+                                                        <FcClock />
+                                                        <span><strong>{recipe.readyInMinutes}</strong> minutes</span>
+                                                    </li>
+                                                    <li className="meal-attribute star-wrapper">
+                                                        <FaRegStar className="star"/>
+                                                        <span>Spoon Score: <strong>{recipe.spoonacularScore.toFixed(2)}</strong></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </Link>
                                     </Card>
                             </SplideSlide>
@@ -71,34 +88,92 @@ const Card = styled.div`
     overflow: hidden;
     position: relative;
 	cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    &:hover{
+        background: aliceblue;
+        .meal-image{
+            scale: 1.05
+        }
+    }
 
-    img{
-        border-radius: 2rem;
-        position: absolute;
-        left: 0;
+    a{
+        text-decoration: none !important; 
+    }
+
+    .meal-image {
         width: 100%;
-        height: 100%;
+        height: 225px;
         object-fit: cover;
-		transition: 0.5s
+        transition: scale 0.5s ease-in-out
     }
 
-	&:hover img{
-        transform: scale(1.02);
+    .meal-content {
+        padding: 32px 16px ;
     }
 
-    p{
-        position: absolute;
-        z-index: 10;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(256,256,256, 0.8);
-        font-size: 1rem;
+    .meal-tags {
+        margin-bottom: 1.2rem;
+        display: flex;
+        gap: 0.4rem;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        font-size: 9px;
+        text-transform: uppercase;
+        background-color: #51cf66;
+        color: #333;
+        border-radius: 100px;
+        font-weight: 600;
+    }
+
+    .tag--vegetarian {
+        background-color: #51cf66;
+    }
+
+    .tag--vegan {
+        background-color: #94d82d;
+    }
+
+    .meal-title {
+        font-size: 20px;
+        line-height: 32px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 3rem;
+    }
+
+    .meal-attributes {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .meal-attribute {
+        font-size: 16px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 15%;
+        gap: 1rem;
     }
+
+    .meal-icon {
+        height: 2.4rem;
+        width: 2.4rem;
+        color: #e67e22;
+    }
+
+    svg{
+        font-size: 25px;
+    }
+
+    .star-wrapper{
+        svg{
+            color: gold;
+        }
+    }
+   
 `
 
 const Gradient = styled.div`
