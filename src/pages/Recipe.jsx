@@ -2,6 +2,11 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import {motion} from 'framer-motion'
+import { FcClock } from "react-icons/fc";
+import { FaRegStar } from "react-icons/fa";
+import { FaWineGlassAlt } from "react-icons/fa";
+import { FaWineBottle } from "react-icons/fa";
+
 
 function Recipe() {
 
@@ -11,14 +16,2782 @@ function Recipe() {
     let params = useParams()
 
     const fetchDetails = async () =>{
-        const data = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-        const detailData = await data.json()
-        setDetails(detailData)
+        // const data = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=true&addWinePairing=true&addTasteData=true`)
+        // const detailData = await data.json()
+        // await setDetails(detailData)
+        // console.log(details)
     }
-    
-    useEffect(() =>{
-        fetchDetails()
-    },[params.id])
+
+    const test = {
+        "vegetarian": true,
+        "vegan": true,
+        "glutenFree": true,
+        "dairyFree": true,
+        "veryHealthy": false,
+        "cheap": false,
+        "veryPopular": false,
+        "sustainable": false,
+        "lowFodmap": false,
+        "weightWatcherSmartPoints": 1,
+        "gaps": "no",
+        "preparationMinutes": null,
+        "cookingMinutes": null,
+        "aggregateLikes": 2,
+        "healthScore": 2,
+        "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+        "license": "CC BY 3.0",
+        "sourceName": "Foodista",
+        "pricePerServing": 57.38,
+        "extendedIngredients": [
+            {
+                "id": 12151,
+                "aisle": "Nuts",
+                "image": "pistachios.jpg",
+                "consistency": "SOLID",
+                "name": "pistachios",
+                "nameClean": "pistachio nuts",
+                "original": "½ cup pistachios, hulled",
+                "originalName": "pistachios, hulled",
+                "amount": 0.5,
+                "unit": "cup",
+                "meta": [
+                    "hulled"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 0.5,
+                        "unitShort": "cups",
+                        "unitLong": "cups"
+                    },
+                    "metric": {
+                        "amount": 61.5,
+                        "unitShort": "g",
+                        "unitLong": "grams"
+                    }
+                }
+            },
+            {
+                "id": 12179,
+                "aisle": "Baking",
+                "image": "shredded-coconut.jpg",
+                "consistency": "SOLID",
+                "name": "coconut",
+                "nameClean": "sweetened shredded coconut",
+                "original": "½ cup sweetened shredded coconut",
+                "originalName": "sweetened shredded coconut",
+                "amount": 0.5,
+                "unit": "cup",
+                "meta": [
+                    "shredded",
+                    "sweetened"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 0.5,
+                        "unitShort": "cups",
+                        "unitLong": "cups"
+                    },
+                    "metric": {
+                        "amount": 45,
+                        "unitShort": "g",
+                        "unitLong": "grams"
+                    }
+                }
+            },
+            {
+                "id": 19165,
+                "aisle": "Baking",
+                "image": "cocoa-powder.png",
+                "consistency": "SOLID",
+                "name": "cocoa powder",
+                "nameClean": "cacao powder",
+                "original": "¼ cup cocoa powder",
+                "originalName": "cocoa powder",
+                "amount": 0.25,
+                "unit": "cup",
+                "meta": [],
+                "measures": {
+                    "us": {
+                        "amount": 0.25,
+                        "unitShort": "cups",
+                        "unitLong": "cups"
+                    },
+                    "metric": {
+                        "amount": 21.5,
+                        "unitShort": "g",
+                        "unitLong": "grams"
+                    }
+                }
+            },
+            {
+                "id": 2047,
+                "aisle": "Spices and Seasonings",
+                "image": "salt.jpg",
+                "consistency": "SOLID",
+                "name": "salt",
+                "nameClean": "table salt",
+                "original": "¼ - ½ teaspoon salt, start with ¼ teaspoon and add more to taste",
+                "originalName": "teaspoon salt, start with ¼ teaspoon and add more to taste",
+                "amount": 0.25,
+                "unit": "",
+                "meta": [
+                    "with ¼ teaspoon and add more to taste"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 0.25,
+                        "unitShort": "",
+                        "unitLong": ""
+                    },
+                    "metric": {
+                        "amount": 0.25,
+                        "unitShort": "",
+                        "unitLong": ""
+                    }
+                }
+            },
+            {
+                "id": 1052050,
+                "aisle": "Baking",
+                "image": "vanilla.jpg",
+                "consistency": "SOLID",
+                "name": "vanilla",
+                "nameClean": "vanilla",
+                "original": "1 teaspoon vanilla",
+                "originalName": "vanilla",
+                "amount": 1,
+                "unit": "teaspoon",
+                "meta": [],
+                "measures": {
+                    "us": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    },
+                    "metric": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    }
+                }
+            },
+            {
+                "id": 9421,
+                "aisle": "Produce",
+                "image": "dates.jpg",
+                "consistency": "SOLID",
+                "name": "medjool dates",
+                "nameClean": "medjool dates",
+                "original": "14 medjool dates, pitted",
+                "originalName": "medjool dates, pitted",
+                "amount": 14,
+                "unit": "",
+                "meta": [
+                    "pitted"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 14,
+                        "unitShort": "",
+                        "unitLong": ""
+                    },
+                    "metric": {
+                        "amount": 14,
+                        "unitShort": "",
+                        "unitLong": ""
+                    }
+                }
+            },
+            {
+                "id": 19904,
+                "aisle": "Sweet Snacks",
+                "image": "dark-chocolate-pieces.jpg",
+                "consistency": "SOLID",
+                "name": "chocolate",
+                "nameClean": "dark chocolate",
+                "original": "Dark chocolate (mixed with a touch of coconut oil), cocoa powder, and shredded coconut for topping",
+                "originalName": "Dark chocolate (mixed with a touch of coconut oil), cocoa powder, and shredded coconut for topping",
+                "amount": 15,
+                "unit": "servings",
+                "meta": [
+                    "mixed",
+                    "dark",
+                    "shredded",
+                    "with a touch of coconut oil), cocoa powder, and  coconut for topping"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 15,
+                        "unitShort": "servings",
+                        "unitLong": "servings"
+                    },
+                    "metric": {
+                        "amount": 15,
+                        "unitShort": "servings",
+                        "unitLong": "servings"
+                    }
+                }
+            }
+        ],
+        "id": 639165,
+        "title": "Chocolate Pistachio Energy Bites",
+        "readyInMinutes": 45,
+        "servings": 15,
+        "sourceUrl": "https://www.foodista.com/recipe/47KCTH7P/chocolate-pistachio-energy-bites",
+        "image": "https://img.spoonacular.com/recipes/639165-556x370.jpg",
+        "imageType": "jpg",
+        "nutrition": {
+            "nutrients": [
+                {
+                    "name": "Calories",
+                    "amount": 110.14,
+                    "unit": "kcal",
+                    "percentOfDailyNeeds": 5.51
+                },
+                {
+                    "name": "Fat",
+                    "amount": 3.58,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 5.51
+                },
+                {
+                    "name": "Saturated Fat",
+                    "amount": 1.53,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 9.58
+                },
+                {
+                    "name": "Carbohydrates",
+                    "amount": 20.67,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 6.89
+                },
+                {
+                    "name": "Net Carbohydrates",
+                    "amount": 17.98,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 6.54
+                },
+                {
+                    "name": "Sugar",
+                    "amount": 16.8,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 18.66
+                },
+                {
+                    "name": "Cholesterol",
+                    "amount": 0.03,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 0.01
+                },
+                {
+                    "name": "Sodium",
+                    "amount": 8.65,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 0.38
+                },
+                {
+                    "name": "Alcohol",
+                    "amount": 0.09,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 100
+                },
+                {
+                    "name": "Alcohol %",
+                    "amount": 0.36,
+                    "unit": "%",
+                    "percentOfDailyNeeds": 100
+                },
+                {
+                    "name": "Caffeine",
+                    "amount": 4.1,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 1.37
+                },
+                {
+                    "name": "Protein",
+                    "amount": 1.68,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 3.36
+                },
+                {
+                    "name": "Manganese",
+                    "amount": 0.26,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 13.24
+                },
+                {
+                    "name": "Copper",
+                    "amount": 0.22,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 10.8
+                },
+                {
+                    "name": "Fiber",
+                    "amount": 2.7,
+                    "unit": "g",
+                    "percentOfDailyNeeds": 10.79
+                },
+                {
+                    "name": "Magnesium",
+                    "amount": 28.02,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 7.01
+                },
+                {
+                    "name": "Vitamin B6",
+                    "amount": 0.14,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 6.79
+                },
+                {
+                    "name": "Potassium",
+                    "amount": 237.37,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 6.78
+                },
+                {
+                    "name": "Phosphorus",
+                    "amount": 50.8,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 5.08
+                },
+                {
+                    "name": "Iron",
+                    "amount": 0.74,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 4.1
+                },
+                {
+                    "name": "Vitamin B1",
+                    "amount": 0.05,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 3.29
+                },
+                {
+                    "name": "Zinc",
+                    "amount": 0.37,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 2.5
+                },
+                {
+                    "name": "Vitamin B3",
+                    "amount": 0.47,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 2.36
+                },
+                {
+                    "name": "Vitamin B5",
+                    "amount": 0.23,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 2.31
+                },
+                {
+                    "name": "Calcium",
+                    "amount": 21.68,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 2.17
+                },
+                {
+                    "name": "Folate",
+                    "amount": 6.15,
+                    "unit": "µg",
+                    "percentOfDailyNeeds": 1.54
+                },
+                {
+                    "name": "Selenium",
+                    "amount": 1.06,
+                    "unit": "µg",
+                    "percentOfDailyNeeds": 1.52
+                },
+                {
+                    "name": "Vitamin B2",
+                    "amount": 0.03,
+                    "unit": "mg",
+                    "percentOfDailyNeeds": 1.48
+                },
+                {
+                    "name": "Vitamin A",
+                    "amount": 50.78,
+                    "unit": "IU",
+                    "percentOfDailyNeeds": 1.02
+                }
+            ],
+            "properties": [
+                {
+                    "name": "Glycemic Index",
+                    "amount": 2.73,
+                    "unit": ""
+                },
+                {
+                    "name": "Glycemic Load",
+                    "amount": 0.21,
+                    "unit": ""
+                },
+                {
+                    "name": "Inflammation Score",
+                    "amount": -2,
+                    "unit": ""
+                },
+                {
+                    "name": "Nutrition Score",
+                    "amount": 3.677391303136297,
+                    "unit": "%"
+                }
+            ],
+            "flavonoids": [
+                {
+                    "name": "Cyanidin",
+                    "amount": 0.3,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Petunidin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Delphinidin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Malvidin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Pelargonidin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Peonidin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Catechin",
+                    "amount": 1.08,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Epigallocatechin",
+                    "amount": 0.08,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Epicatechin",
+                    "amount": 2.85,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Epicatechin 3-gallate",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Epigallocatechin 3-gallate",
+                    "amount": 0.02,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Theaflavin",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Thearubigins",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Eriodictyol",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Hesperetin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Naringenin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Apigenin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Luteolin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Isorhamnetin",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Kaempferol",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Myricetin",
+                    "amount": 0,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Quercetin",
+                    "amount": 0.2,
+                    "unit": "mg"
+                },
+                {
+                    "name": "Theaflavin-3,3'-digallate",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Theaflavin-3'-gallate",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Theaflavin-3-gallate",
+                    "amount": 0,
+                    "unit": ""
+                },
+                {
+                    "name": "Gallocatechin",
+                    "amount": 0,
+                    "unit": "mg"
+                }
+            ],
+            "ingredients": [
+                {
+                    "id": 12151,
+                    "name": "pistachios",
+                    "amount": 0.03,
+                    "unit": "cup",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 1.13,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 4.3,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0.23,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 1.86,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0.29,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0.09,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 20.09,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0.04,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 0.31,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0.23,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 0.71,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0.16,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 42.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 17.02,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0.98,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0.09,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0.56,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0.07,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Trans Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 4.96,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0.42,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Fluoride",
+                            "amount": 0.14,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 2.09,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 23.04,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0.04,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Alcohol",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 100
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0.83,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 12179,
+                    "name": "coconut",
+                    "amount": 0.03,
+                    "unit": "cup",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 1.43,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 0.45,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0.07,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0.01,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0.94,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Choline",
+                            "amount": 0.58,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 1.06,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0.5,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 3.21,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 7.86,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 1.3,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 1.3,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0.06,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 10.11,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 0,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0.05,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0.01,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 1.5,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0.14,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 0.24,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 15.03,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Alcohol",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 100
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0.09,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 19165,
+                    "name": "cocoa powder",
+                    "amount": 0.02,
+                    "unit": "cup",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 0.83,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 1.83,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0.04,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0.12,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Choline",
+                            "amount": 0.17,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 0.2,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0.2,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 10.52,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0.05,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0.3,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 0.03,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 0.3,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0.2,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 21.79,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 0,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0.07,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0.1,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0.01,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 3.3,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 7.15,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0.53,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 0.46,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 3.27,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Alcohol",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 100
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0.28,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 2047,
+                    "name": "salt",
+                    "amount": 0.02,
+                    "unit": "",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Choline",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 0,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Fluoride",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 0,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Alcohol",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 100
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 1052050,
+                    "name": "vanilla",
+                    "amount": 0.07,
+                    "unit": "teaspoon",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 0.03,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 0.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 0.03,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 0.03,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 0.39,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 0,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 0.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 0.77,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Alcohol",
+                            "amount": 0.09,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 100
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 9421,
+                    "name": "medjool dates",
+                    "amount": 0.93,
+                    "unit": "",
+                    "nutrients": [
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 16.79,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 14.34,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin D",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0.36,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0.07,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0.6,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Choline",
+                            "amount": 2.22,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 0.03,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 13.89,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0.08,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0.22,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 14.89,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Vitamin C",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.3
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 15.29,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Folic Acid",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0.2,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 155.9,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 33.38,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0.18,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0.1,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0.06,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 12.1,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 1.5,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Folate",
+                            "amount": 3.36,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.54
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 62.05,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0.41,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                },
+                {
+                    "id": 19904,
+                    "name": "chocolate",
+                    "amount": 1,
+                    "unit": "servings",
+                    "nutrients": [
+                        {
+                            "name": "Vitamin B12",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.05
+                        },
+                        {
+                            "name": "Carbohydrates",
+                            "amount": 0.46,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.89
+                        },
+                        {
+                            "name": "Calcium",
+                            "amount": 0.73,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.17
+                        },
+                        {
+                            "name": "Vitamin B3",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.36
+                        },
+                        {
+                            "name": "Manganese",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 13.24
+                        },
+                        {
+                            "name": "Vitamin K",
+                            "amount": 0.07,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0.69
+                        },
+                        {
+                            "name": "Saturated Fat",
+                            "amount": 0.24,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 9.58
+                        },
+                        {
+                            "name": "Fat",
+                            "amount": 0.43,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Selenium",
+                            "amount": 0.07,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 1.52
+                        },
+                        {
+                            "name": "Vitamin E",
+                            "amount": 0.01,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.76
+                        },
+                        {
+                            "name": "Phosphorus",
+                            "amount": 3.08,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 5.08
+                        },
+                        {
+                            "name": "Copper",
+                            "amount": 0.02,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 10.8
+                        },
+                        {
+                            "name": "Sodium",
+                            "amount": 0.2,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.38
+                        },
+                        {
+                            "name": "Sugar",
+                            "amount": 0.24,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 18.66
+                        },
+                        {
+                            "name": "Net Carbohydrates",
+                            "amount": 0.35,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 6.54
+                        },
+                        {
+                            "name": "Iron",
+                            "amount": 0.12,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 4.1
+                        },
+                        {
+                            "name": "Potassium",
+                            "amount": 7.15,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.78
+                        },
+                        {
+                            "name": "Vitamin A",
+                            "amount": 0.39,
+                            "unit": "IU",
+                            "percentOfDailyNeeds": 1.02
+                        },
+                        {
+                            "name": "Lycopene",
+                            "amount": 0,
+                            "unit": "µg",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Mono Unsaturated Fat",
+                            "amount": 0.13,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B5",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.31
+                        },
+                        {
+                            "name": "Vitamin B2",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.48
+                        },
+                        {
+                            "name": "Zinc",
+                            "amount": 0.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 2.5
+                        },
+                        {
+                            "name": "Poly Unsaturated Fat",
+                            "amount": 0.01,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 0
+                        },
+                        {
+                            "name": "Vitamin B6",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 6.79
+                        },
+                        {
+                            "name": "Caffeine",
+                            "amount": 0.8,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 1.37
+                        },
+                        {
+                            "name": "Trans Fat",
+                            "amount": 0,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3
+                        },
+                        {
+                            "name": "Cholesterol",
+                            "amount": 0.03,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 0.01
+                        },
+                        {
+                            "name": "Magnesium",
+                            "amount": 2.28,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 7.01
+                        },
+                        {
+                            "name": "Fiber",
+                            "amount": 0.11,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 10.79
+                        },
+                        {
+                            "name": "Vitamin B1",
+                            "amount": 0,
+                            "unit": "mg",
+                            "percentOfDailyNeeds": 3.29
+                        },
+                        {
+                            "name": "Calories",
+                            "amount": 5.98,
+                            "unit": "kcal",
+                            "percentOfDailyNeeds": 5.51
+                        },
+                        {
+                            "name": "Protein",
+                            "amount": 0.08,
+                            "unit": "g",
+                            "percentOfDailyNeeds": 3.36
+                        }
+                    ]
+                }
+            ],
+            "caloricBreakdown": {
+                "percentProtein": 5.53,
+                "percentFat": 26.5,
+                "percentCarbs": 67.97
+            },
+            "weightPerServing": {
+                "amount": 32,
+                "unit": "g"
+            }
+        },
+        "taste": {
+            "sweetness": 100,
+            "saltiness": 10.9,
+            "sourness": 16.46,
+            "bitterness": 18.13,
+            "savoriness": 45.54,
+            "fattiness": 45.1,
+            "spiciness": 0
+        },
+        "summary": "Need a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian hor d'oeuvre</b>? Chocolate Pistachio Energy Bites could be an excellent recipe to try. For <b>57 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. This recipe makes 15 servings with <b>110 calories</b>, <b>2g of protein</b>, and <b>4g of fat</b> each. This recipe from Foodista requires pistachios, medjool dates, cocoa powder, and salt. 2 people have made this recipe and would make it again. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. With a spoonacular <b>score of 27%</b>, this dish is rather bad. <a href=\"https://spoonacular.com/recipes/chocolate-pistachio-energy-bites-1232987\">Chocolate Pistachio Energy Bites</a>, <a href=\"https://spoonacular.com/recipes/cranberry-pistachio-energy-bites-1232989\">Cranberry Pistachio Energy Bites</a>, and <a href=\"https://spoonacular.com/recipes/cranberry-pistachio-energy-bites-1215215\">Cranberry Pistachio Energy Bites</a> are very similar to this recipe.",
+        "cuisines": ["Mexican","Mexicanasdas","123123"],
+        "dishTypes": [
+            "antipasti",
+            "starter",
+            "snack",
+            "appetizer",
+            "antipasto",
+            "hor d'oeuvre"
+        ],
+        "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "lacto ovo vegetarian",
+            "primal",
+            "vegan"
+        ],
+        "occasions": [],
+        "winePairing": {
+            "pairedWines": [
+                "sparkling wine",
+                "sparkling rose"
+            ],
+            "pairingText": "Antipasti works really well with Sparkling Wine and Sparkling rosé. If you're serving a selection of appetizers, you can't go wrong with these. Both are very food friendly and complement a variety of flavors. You could try Stella Rosa. Il Conte D`Alba - Italian 90 Points. Reviewers quite like it with a 4.7 out of 5 star rating and a price of about 15 dollars per bottle.",
+            "productMatches": [
+                {
+                    "id": 428417,
+                    "title": "Stella Rosa. Il Conte D`Alba - Italian 90 Points",
+                    "description": "Fruit and sweetness that is just balanced with the bubbles",
+                    "price": "$14.99",
+                    "imageUrl": "https://img.spoonacular.com/products/428417-312x231.jpg",
+                    "averageRating": 0.9399999976158142,
+                    "ratingCount": 11,
+                    "score": 0.9106,
+                    "link": "https://www.amazon.com/Stella-Rosa-Conte-D%60Alba-Sparkling/dp/B00UNSLUE4?tag=spoonacular-20"
+                }
+            ]
+        },
+        "instructions": "INSTRUCTIONS\nSoak the dates in warm water for about 10 minutes. Drain.\nIn your food processor, combine pistachios, shredded coconut, cocoa powder, and salt. Pulse until finely ground.\nAdd in vanilla and the softened mejool dates and pulse until a ball forms.\nRoll into bite sized balls (mine were about  tablespoons) and dip immediately in to cocoa powder, shredded coconut, or my personal favorite dark chocolate that's been melted with a *hint* of coconut oil.\nEnjoy immediately! Store the leftovers in an airtight container in the fridge.\nNOTES\nCocoa powder is extremely bitter, so make sure you like the taste before rolling all of them in cocoa powder. My personal favorites are the shredded coconut or dark chocolate! :)",
+        "analyzedInstructions": [
+            {
+                "name": "",
+                "steps": [
+                    {
+                        "number": 1,
+                        "step": "Soak the dates in warm water for about 10 minutes.",
+                        "ingredients": [
+                            {
+                                "id": 9087,
+                                "name": "dates",
+                                "localizedName": "dates",
+                                "image": "dates.jpg"
+                            },
+                            {
+                                "id": 14412,
+                                "name": "water",
+                                "localizedName": "water",
+                                "image": "water.png"
+                            }
+                        ],
+                        "equipment": [],
+                        "length": {
+                            "number": 10,
+                            "unit": "minutes"
+                        }
+                    },
+                    {
+                        "number": 2,
+                        "step": "Drain.",
+                        "ingredients": [],
+                        "equipment": []
+                    },
+                    {
+                        "number": 3,
+                        "step": "In your food processor, combine pistachios, shredded coconut, cocoa powder, and salt. Pulse until finely ground.",
+                        "ingredients": [
+                            {
+                                "id": 0,
+                                "name": "shredded coconut",
+                                "localizedName": "shredded coconut",
+                                "image": "shredded-coconut.jpg"
+                            },
+                            {
+                                "id": 19165,
+                                "name": "cocoa powder",
+                                "localizedName": "cocoa powder",
+                                "image": "cocoa-powder.png"
+                            },
+                            {
+                                "id": 12151,
+                                "name": "pistachio nuts",
+                                "localizedName": "pistachio nuts",
+                                "image": "pistachios.jpg"
+                            },
+                            {
+                                "id": 2047,
+                                "name": "salt",
+                                "localizedName": "salt",
+                                "image": "salt.jpg"
+                            }
+                        ],
+                        "equipment": [
+                            {
+                                "id": 404771,
+                                "name": "food processor",
+                                "localizedName": "food processor",
+                                "image": "https://spoonacular.com/cdn/equipment_100x100/food-processor.png"
+                            }
+                        ]
+                    },
+                    {
+                        "number": 4,
+                        "step": "Add in vanilla and the softened mejool dates and pulse until a ball forms.",
+                        "ingredients": [
+                            {
+                                "id": 1052050,
+                                "name": "vanilla",
+                                "localizedName": "vanilla",
+                                "image": "vanilla.jpg"
+                            },
+                            {
+                                "id": 9087,
+                                "name": "dates",
+                                "localizedName": "dates",
+                                "image": "dates.jpg"
+                            }
+                        ],
+                        "equipment": []
+                    },
+                    {
+                        "number": 5,
+                        "step": "Roll into bite sized balls (mine were about  tablespoons) and dip immediately in to cocoa powder, shredded coconut, or my personal favorite dark chocolate that's been melted with a *hint* of coconut oil.",
+                        "ingredients": [
+                            {
+                                "id": 0,
+                                "name": "shredded coconut",
+                                "localizedName": "shredded coconut",
+                                "image": "shredded-coconut.jpg"
+                            },
+                            {
+                                "id": 19904,
+                                "name": "dark chocolate",
+                                "localizedName": "dark chocolate",
+                                "image": "dark-chocolate-pieces.jpg"
+                            },
+                            {
+                                "id": 19165,
+                                "name": "cocoa powder",
+                                "localizedName": "cocoa powder",
+                                "image": "cocoa-powder.png"
+                            },
+                            {
+                                "id": 4047,
+                                "name": "coconut oil",
+                                "localizedName": "coconut oil",
+                                "image": "oil-coconut.jpg"
+                            },
+                            {
+                                "id": 0,
+                                "name": "roll",
+                                "localizedName": "roll",
+                                "image": "dinner-yeast-rolls.jpg"
+                            },
+                            {
+                                "id": 0,
+                                "name": "dip",
+                                "localizedName": "dip",
+                                "image": ""
+                            }
+                        ],
+                        "equipment": []
+                    },
+                    {
+                        "number": 6,
+                        "step": "Enjoy immediately! Store the leftovers in an airtight container in the fridge.",
+                        "ingredients": [],
+                        "equipment": []
+                    },
+                    {
+                        "number": 7,
+                        "step": "NOTES",
+                        "ingredients": [],
+                        "equipment": []
+                    },
+                    {
+                        "number": 8,
+                        "step": "Cocoa powder is extremely bitter, so make sure you like the taste before rolling all of them in cocoa powder. My personal favorites are the shredded coconut or dark chocolate! :)",
+                        "ingredients": [
+                            {
+                                "id": 0,
+                                "name": "shredded coconut",
+                                "localizedName": "shredded coconut",
+                                "image": "shredded-coconut.jpg"
+                            },
+                            {
+                                "id": 19904,
+                                "name": "dark chocolate",
+                                "localizedName": "dark chocolate",
+                                "image": "dark-chocolate-pieces.jpg"
+                            },
+                            {
+                                "id": 19165,
+                                "name": "cocoa powder",
+                                "localizedName": "cocoa powder",
+                                "image": "cocoa-powder.png"
+                            }
+                        ],
+                        "equipment": []
+                    }
+                ]
+            }
+        ],
+        "originalId": null,
+        "spoonacularScore": 34.168212890625,
+        "spoonacularSourceUrl": "https://spoonacular.com/chocolate-pistachio-energy-bites-639165"
+    }
+
+    // const test = {
+    //     "vegetarian": true,
+    //     "vegan": true,
+    //     "glutenFree": true,
+    //     "dairyFree": true,
+    //     "veryHealthy": false,
+    //     "cheap": false,
+    //     "veryPopular": false,
+    //     "sustainable": false,
+    //     "lowFodmap": false,
+    //     "weightWatcherSmartPoints": 1,
+    //     "gaps": "no",
+    //     "preparationMinutes": null,
+    //     "cookingMinutes": null,
+    //     "aggregateLikes": 2,
+    //     "healthScore": 2,
+    //     "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+    //     "license": "CC BY 3.0",
+    //     "sourceName": "Foodista",
+    //     "pricePerServing": 57.38,
+    //     "extendedIngredients": [
+    //         {
+    //             "id": 12151,
+    //             "aisle": "Nuts",
+    //             "image": "pistachios.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "pistachios",
+    //             "nameClean": "pistachio nuts",
+    //             "original": "½ cup pistachios, hulled",
+    //             "originalName": "pistachios, hulled",
+    //             "amount": 0.5,
+    //             "unit": "cup",
+    //             "meta": [
+    //                 "hulled"
+    //             ],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 0.5,
+    //                     "unitShort": "cups",
+    //                     "unitLong": "cups"
+    //                 },
+    //                 "metric": {
+    //                     "amount": 61.5,
+    //                     "unitShort": "g",
+    //                     "unitLong": "grams"
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 12179,
+    //             "aisle": "Baking",
+    //             "image": "shredded-coconut.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "coconut",
+    //             "nameClean": "sweetened shredded coconut",
+    //             "original": "½ cup sweetened shredded coconut",
+    //             "originalName": "sweetened shredded coconut",
+    //             "amount": 0.5,
+    //             "unit": "cup",
+    //             "meta": [
+    //                 "shredded",
+    //                 "sweetened"
+    //             ],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 0.5,
+    //                     "unitShort": "cups",
+    //                     "unitLong": "cups"
+    //                 },
+    //                 "metric": {
+    //                     "amount": 45,
+    //                     "unitShort": "g",
+    //                     "unitLong": "grams"
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 19165,
+    //             "aisle": "Baking",
+    //             "image": "cocoa-powder.png",
+    //             "consistency": "SOLID",
+    //             "name": "cocoa powder",
+    //             "nameClean": "cacao powder",
+    //             "original": "¼ cup cocoa powder",
+    //             "originalName": "cocoa powder",
+    //             "amount": 0.25,
+    //             "unit": "cup",
+    //             "meta": [],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 0.25,
+    //                     "unitShort": "cups",
+    //                     "unitLong": "cups"
+    //                 },
+    //                 "metric": {
+    //                     "amount": 21.5,
+    //                     "unitShort": "g",
+    //                     "unitLong": "grams"
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 2047,
+    //             "aisle": "Spices and Seasonings",
+    //             "image": "salt.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "salt",
+    //             "nameClean": "table salt",
+    //             "original": "¼ - ½ teaspoon salt, start with ¼ teaspoon and add more to taste",
+    //             "originalName": "teaspoon salt, start with ¼ teaspoon and add more to taste",
+    //             "amount": 0.25,
+    //             "unit": "",
+    //             "meta": [
+    //                 "with ¼ teaspoon and add more to taste"
+    //             ],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 0.25,
+    //                     "unitShort": "",
+    //                     "unitLong": ""
+    //                 },
+    //                 "metric": {
+    //                     "amount": 0.25,
+    //                     "unitShort": "",
+    //                     "unitLong": ""
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 1052050,
+    //             "aisle": "Baking",
+    //             "image": "vanilla.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "vanilla",
+    //             "nameClean": "vanilla",
+    //             "original": "1 teaspoon vanilla",
+    //             "originalName": "vanilla",
+    //             "amount": 1,
+    //             "unit": "teaspoon",
+    //             "meta": [],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 1,
+    //                     "unitShort": "tsp",
+    //                     "unitLong": "teaspoon"
+    //                 },
+    //                 "metric": {
+    //                     "amount": 1,
+    //                     "unitShort": "tsp",
+    //                     "unitLong": "teaspoon"
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 9421,
+    //             "aisle": "Produce",
+    //             "image": "dates.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "medjool dates",
+    //             "nameClean": "medjool dates",
+    //             "original": "14 medjool dates, pitted",
+    //             "originalName": "medjool dates, pitted",
+    //             "amount": 14,
+    //             "unit": "",
+    //             "meta": [
+    //                 "pitted"
+    //             ],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 14,
+    //                     "unitShort": "",
+    //                     "unitLong": ""
+    //                 },
+    //                 "metric": {
+    //                     "amount": 14,
+    //                     "unitShort": "",
+    //                     "unitLong": ""
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             "id": 19904,
+    //             "aisle": "Sweet Snacks",
+    //             "image": "dark-chocolate-pieces.jpg",
+    //             "consistency": "SOLID",
+    //             "name": "chocolate",
+    //             "nameClean": "dark chocolate",
+    //             "original": "Dark chocolate (mixed with a touch of coconut oil), cocoa powder, and shredded coconut for topping",
+    //             "originalName": "Dark chocolate (mixed with a touch of coconut oil), cocoa powder, and shredded coconut for topping",
+    //             "amount": 15,
+    //             "unit": "servings",
+    //             "meta": [
+    //                 "mixed",
+    //                 "dark",
+    //                 "shredded",
+    //                 "with a touch of coconut oil), cocoa powder, and  coconut for topping"
+    //             ],
+    //             "measures": {
+    //                 "us": {
+    //                     "amount": 15,
+    //                     "unitShort": "servings",
+    //                     "unitLong": "servings"
+    //                 },
+    //                 "metric": {
+    //                     "amount": 15,
+    //                     "unitShort": "servings",
+    //                     "unitLong": "servings"
+    //                 }
+    //             }
+    //         }
+    //     ],
+    //     "id": 639165,
+    //     "title": "Chocolate Pistachio Energy Bites",
+    //     "readyInMinutes": 45,
+    //     "servings": 15,
+    //     "sourceUrl": "https://www.foodista.com/recipe/47KCTH7P/chocolate-pistachio-energy-bites",
+    //     "image": "https://img.spoonacular.com/recipes/639165-556x370.jpg",
+    //     "imageType": "jpg",
+    //     "summary": "Need a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian hor d'oeuvre</b>? Chocolate Pistachio Energy Bites could be an excellent recipe to try. For <b>57 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. This recipe makes 15 servings with <b>110 calories</b>, <b>2g of protein</b>, and <b>4g of fat</b> each. This recipe from Foodista requires pistachios, medjool dates, cocoa powder, and salt. 2 people have made this recipe and would make it again. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. With a spoonacular <b>score of 27%</b>, this dish is rather bad. <a href=\"https://spoonacular.com/recipes/chocolate-pistachio-energy-bites-1232987\">Chocolate Pistachio Energy Bites</a>, <a href=\"https://spoonacular.com/recipes/cranberry-pistachio-energy-bites-1232989\">Cranberry Pistachio Energy Bites</a>, and <a href=\"https://spoonacular.com/recipes/cranberry-pistachio-energy-bites-1215215\">Cranberry Pistachio Energy Bites</a> are very similar to this recipe.",
+    //     "cuisines": [],
+    //     "dishTypes": [
+    //         "antipasti",
+    //         "starter",
+    //         "snack",
+    //         "appetizer",
+    //         "antipasto",
+    //         "hor d'oeuvre"
+    //     ],
+    //     "diets": [
+    //         "gluten free",
+    //         "dairy free",
+    //         "paleolithic",
+    //         "lacto ovo vegetarian",
+    //         "primal",
+    //         "vegan"
+    //     ],
+    //     "occasions": [],
+    //     "instructions": "INSTRUCTIONS\nSoak the dates in warm water for about 10 minutes. Drain.\nIn your food processor, combine pistachios, shredded coconut, cocoa powder, and salt. Pulse until finely ground.\nAdd in vanilla and the softened mejool dates and pulse until a ball forms.\nRoll into bite sized balls (mine were about  tablespoons) and dip immediately in to cocoa powder, shredded coconut, or my personal favorite dark chocolate that's been melted with a *hint* of coconut oil.\nEnjoy immediately! Store the leftovers in an airtight container in the fridge.\nNOTES\nCocoa powder is extremely bitter, so make sure you like the taste before rolling all of them in cocoa powder. My personal favorites are the shredded coconut or dark chocolate! :)",
+    //     "analyzedInstructions": [
+    //         {
+    //             "name": "",
+    //             "steps": [
+    //                 {
+    //                     "number": 1,
+    //                     "step": "Soak the dates in warm water for about 10 minutes.",
+    //                     "ingredients": [
+    //                         {
+    //                             "id": 9087,
+    //                             "name": "dates",
+    //                             "localizedName": "dates",
+    //                             "image": "dates.jpg"
+    //                         },
+    //                         {
+    //                             "id": 14412,
+    //                             "name": "water",
+    //                             "localizedName": "water",
+    //                             "image": "water.png"
+    //                         }
+    //                     ],
+    //                     "equipment": [],
+    //                     "length": {
+    //                         "number": 10,
+    //                         "unit": "minutes"
+    //                     }
+    //                 },
+    //                 {
+    //                     "number": 2,
+    //                     "step": "Drain.",
+    //                     "ingredients": [],
+    //                     "equipment": []
+    //                 },
+    //                 {
+    //                     "number": 3,
+    //                     "step": "In your food processor, combine pistachios, shredded coconut, cocoa powder, and salt. Pulse until finely ground.",
+    //                     "ingredients": [
+    //                         {
+    //                             "id": 0,
+    //                             "name": "shredded coconut",
+    //                             "localizedName": "shredded coconut",
+    //                             "image": "shredded-coconut.jpg"
+    //                         },
+    //                         {
+    //                             "id": 19165,
+    //                             "name": "cocoa powder",
+    //                             "localizedName": "cocoa powder",
+    //                             "image": "cocoa-powder.png"
+    //                         },
+    //                         {
+    //                             "id": 12151,
+    //                             "name": "pistachio nuts",
+    //                             "localizedName": "pistachio nuts",
+    //                             "image": "pistachios.jpg"
+    //                         },
+    //                         {
+    //                             "id": 2047,
+    //                             "name": "salt",
+    //                             "localizedName": "salt",
+    //                             "image": "salt.jpg"
+    //                         }
+    //                     ],
+    //                     "equipment": [
+    //                         {
+    //                             "id": 404771,
+    //                             "name": "food processor",
+    //                             "localizedName": "food processor",
+    //                             "image": "https://spoonacular.com/cdn/equipment_100x100/food-processor.png"
+    //                         }
+    //                     ]
+    //                 },
+    //                 {
+    //                     "number": 4,
+    //                     "step": "Add in vanilla and the softened mejool dates and pulse until a ball forms.",
+    //                     "ingredients": [
+    //                         {
+    //                             "id": 1052050,
+    //                             "name": "vanilla",
+    //                             "localizedName": "vanilla",
+    //                             "image": "vanilla.jpg"
+    //                         },
+    //                         {
+    //                             "id": 9087,
+    //                             "name": "dates",
+    //                             "localizedName": "dates",
+    //                             "image": "dates.jpg"
+    //                         }
+    //                     ],
+    //                     "equipment": []
+    //                 },
+    //                 {
+    //                     "number": 5,
+    //                     "step": "Roll into bite sized balls (mine were about  tablespoons) and dip immediately in to cocoa powder, shredded coconut, or my personal favorite dark chocolate that's been melted with a *hint* of coconut oil.",
+    //                     "ingredients": [
+    //                         {
+    //                             "id": 0,
+    //                             "name": "shredded coconut",
+    //                             "localizedName": "shredded coconut",
+    //                             "image": "shredded-coconut.jpg"
+    //                         },
+    //                         {
+    //                             "id": 19904,
+    //                             "name": "dark chocolate",
+    //                             "localizedName": "dark chocolate",
+    //                             "image": "dark-chocolate-pieces.jpg"
+    //                         },
+    //                         {
+    //                             "id": 19165,
+    //                             "name": "cocoa powder",
+    //                             "localizedName": "cocoa powder",
+    //                             "image": "cocoa-powder.png"
+    //                         },
+    //                         {
+    //                             "id": 4047,
+    //                             "name": "coconut oil",
+    //                             "localizedName": "coconut oil",
+    //                             "image": "oil-coconut.jpg"
+    //                         },
+    //                         {
+    //                             "id": 0,
+    //                             "name": "roll",
+    //                             "localizedName": "roll",
+    //                             "image": "dinner-yeast-rolls.jpg"
+    //                         },
+    //                         {
+    //                             "id": 0,
+    //                             "name": "dip",
+    //                             "localizedName": "dip",
+    //                             "image": ""
+    //                         }
+    //                     ],
+    //                     "equipment": []
+    //                 },
+    //                 {
+    //                     "number": 6,
+    //                     "step": "Enjoy immediately! Store the leftovers in an airtight container in the fridge.",
+    //                     "ingredients": [],
+    //                     "equipment": []
+    //                 },
+    //                 {
+    //                     "number": 7,
+    //                     "step": "NOTES",
+    //                     "ingredients": [],
+    //                     "equipment": []
+    //                 },
+    //                 {
+    //                     "number": 8,
+    //                     "step": "Cocoa powder is extremely bitter, so make sure you like the taste before rolling all of them in cocoa powder. My personal favorites are the shredded coconut or dark chocolate! :)",
+    //                     "ingredients": [
+    //                         {
+    //                             "id": 0,
+    //                             "name": "shredded coconut",
+    //                             "localizedName": "shredded coconut",
+    //                             "image": "shredded-coconut.jpg"
+    //                         },
+    //                         {
+    //                             "id": 19904,
+    //                             "name": "dark chocolate",
+    //                             "localizedName": "dark chocolate",
+    //                             "image": "dark-chocolate-pieces.jpg"
+    //                         },
+    //                         {
+    //                             "id": 19165,
+    //                             "name": "cocoa powder",
+    //                             "localizedName": "cocoa powder",
+    //                             "image": "cocoa-powder.png"
+    //                         }
+    //                     ],
+    //                     "equipment": []
+    //                 }
+    //             ]
+    //         }
+    //     ],
+    //     "originalId": null,
+    //     "spoonacularScore": 34.168212890625,
+    //     "spoonacularSourceUrl": "https://spoonacular.com/chocolate-pistachio-energy-bites-639165"
+    // }
+
+    // useEffect(() =>{
+    //     fetchDetails()
+    //     console.log(details)
+    // },[params.id])
 
 
     return (
@@ -28,10 +2801,44 @@ function Recipe() {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <div>
-                <h2>{details.title}</h2>
-                <img src={details.image} alt="" />
-            </div>
+            <h2>{test.title}</h2>
+            <ImageAndInfo>
+                <img src={test.image} alt="" />
+                <RecipeInfo>
+                    <div className="pills-tag">
+                        {test.vegetarian && <span className="tag tag--vegetarian">Vegetarian</span>}
+                        {test.vegan && <span className="tag tag--vegan">Vegan</span>}
+                        {test.glutenFree && <span className="tag tag--glutenFree">Gluten Free</span>}
+                    </div>
+                    {test.cuisines.length > 0 && <CuisineSection>
+                            {test.cuisines.map((cuisine) => <p>{cuisine}</p>)}
+                    </CuisineSection>}
+
+                    <ul className="icons-info">
+                        <li className="meal-attribute">
+                            <FcClock />
+                            <span><strong>{test.readyInMinutes}</strong> minutes</span>
+                        </li>
+                        <li className="meal-attribute star-wrapper">
+                            <FaRegStar className="star"/>
+                            <span>Spoon Score: <strong>{test.spoonacularScore.toFixed(2)}</strong></span>
+                        </li> 
+                    </ul>
+                    <WineSection>
+                        {test.winePairing.pairedWines && <h4>Paired Wines <FaWineGlassAlt /></h4>}
+                        <ul className="wine-list">
+                            {test.winePairing.pairedWines.map(wine => {
+                                return(
+                                    <li className="wine-name">
+                                        <FaWineBottle/>
+                                        {wine}
+                                    </li>
+                            )})}
+                        </ul>
+                    </WineSection>
+
+                </RecipeInfo>
+            </ImageAndInfo>
             <Info
                 animate={{opacity: 1}}
                 initial={{opacity: 0}}
@@ -46,8 +2853,8 @@ function Recipe() {
                         exit={{y: -50, opacity: 0}}
                         transition={{duration: 0.5}}
                     >
-                        <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-                        <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
+                        <h3 dangerouslySetInnerHTML={{__html: test.summary}}></h3>
+                        <h3 dangerouslySetInnerHTML={{__html: test.instructions}}></h3>
                     </motion.div>
                 )}
                 {activeTab === "ingredients" && (
@@ -58,7 +2865,7 @@ function Recipe() {
                         transition={{duration: 0.5}}
                      >
                         <ul>
-                            {details.extendedIngredients?.map((ingredient) => (
+                            {test.extendedIngredients?.map((ingredient) => (
                                 <li key={ingredient.id}>{ingredient.original}</li>
                             ))}
                         </ul>
@@ -70,9 +2877,15 @@ function Recipe() {
 }
 
 const DetailWrapper = styled(motion.div)`
-    margin-top: 10rem;
+    margin-top: 4rem;
     margin-bottom: 5rem;
     display: flex;
+    flex-direction: column;
+
+    h2{
+        margin-bottom: 2rem;
+    }
+
     .active{
         background: linear-gradient(35deg, #494949, #313131);
         color: white;
@@ -80,7 +2893,7 @@ const DetailWrapper = styled(motion.div)`
     img{
         border-radius: 10px;
         object-fit: cover;
-        max-height: 400px;
+        max-width: 50%;
     }
     li{
         font-size: 1.2rem;
@@ -90,6 +2903,10 @@ const DetailWrapper = styled(motion.div)`
         margin-top: 2rem;
         padding-left: 20px;
     }
+`
+const ImageAndInfo = styled.div`
+    display: flex;
+    gap: 5rem;
 `
 
 const Button = styled.button`
@@ -105,6 +2922,86 @@ const Button = styled.button`
 
 const Info = styled(motion.div)`
     margin-left: 10rem;
+`
+
+const RecipeInfo = styled.div`
+
+    .pills-tag{
+        display: flex;
+        gap: 15px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        font-size: 12px;
+        text-transform: uppercase;
+        background-color: #51cf66;
+        color: #333;
+        border-radius: 100px;
+        font-weight: 600;
+    }
+    
+    .tag--vegetarian {
+        background-color: #51cf66;
+    }
+
+    .tag--vegan {
+        background-color: #94d82d;
+    }
+
+    .tag--glutenFree {
+        background-color: #98FB98;
+    }
+
+
+    .icons-info{
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        padding: 0;
+        .meal-attribute{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            svg{
+                font-size: 25px;
+            }
+            &.star-wrapper{
+                svg{
+                    color: gold;
+                }
+            }
+        }
+    }
+
+`
+
+const CuisineSection = styled.div`
+`
+
+const WineSection = styled.div`
+    margin-top: 2rem;
+    h4{
+        font-size: 24px;
+        color: #800020;
+    }
+
+    .wine-list{
+        margin-top: 0;
+        color: #800020;
+        list-style: none;
+        gap: 5px;
+        padding: 0;
+    }
+
+    .wine-name{
+        text-transform: capitalize;
+        color: black;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 `
 
 export default Recipe
