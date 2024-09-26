@@ -1,55 +1,55 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0 10%
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0 10%;
+	background-image: url("./computador-camaroes.webp");
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
 
-h4{
-  font-size: 1rem;
-  color: rgb(56, 56, 56);
+h4 {
+	font-size: 1rem;
+	color: rgb(56, 56, 56);
 }
 
-h3{
-  font-size: 1.5rem;
-  color: rgb(56, 56, 56);
-  line-height: 2.5rem;
-  margin: 2rem 0rem;
+h3 {
+	font-size: 1.5rem;
+	color: rgb(56, 56, 56);
+	line-height: 2.5rem;
+	margin: 2rem 0rem;
 }
 
-a{
-  color: rgb(56, 56, 56);
+a {
+	color: rgb(56, 56, 56);
 }
 
-.splide .splide__track{
-  padding-bottom:
-   10px !important;
+.splide .splide__track {
+	padding-bottom: 10px !important;
 }
 
 .splide .splide__arrow--prev {
-  left: -50px; /* Mova para fora do slider na direção esquerda */
-  top: 50%;    /* Centraliza verticalmente */
-  transform: translateY(-50%);
+	left: -50px; /* Mova para fora do slider na direção esquerda */
+	top: 50%; /* Centraliza verticalmente */
+	transform: translateY(-50%);
 }
 
 /* Move a seta da direita (avançar) */
 .splide .splide__arrow--next {
-  right: -50px; /* Mova para fora do slider na direção direita */
-  top: 50%;     /* Centraliza verticalmente */
-  transform: translateY(-50%);
+	right: -50px; /* Mova para fora do slider na direção direita */
+	top: 50%; /* Centraliza verticalmente */
+	transform: translateY(-50%);
 }
