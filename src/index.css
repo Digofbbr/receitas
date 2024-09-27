@@ -14,6 +14,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	margin: 0 10%;
 	background-image: url("./computador-camaroes.webp");
+
+	@media (max-width: 768px) {
+		margin: 0 5%;
+	}
 }
 
 code {
@@ -45,6 +49,14 @@ a {
 	left: -50px; /* Mova para fora do slider na direção esquerda */
 	top: 50%; /* Centraliza verticalmente */
 	transform: translateY(-50%);
+
+	@media (max-width: 900px) {
+		left: -15px;
+	}
+
+	@media (max-width: 425px) {
+		left: 0px;
+	}
 }
 
 /* Move a seta da direita (avançar) */
@@ -52,4 +64,19 @@ a {
 	right: -50px; /* Mova para fora do slider na direção direita */
 	top: 50%; /* Centraliza verticalmente */
 	transform: translateY(-50%);
+
+	@media (max-width: 900px) {
+		right: -15px;
+	}
+
+	@media (max-width: 425px) {
+		right: 0px;
+	}
+}
+
+@media (max-width: 600px) {
+	.splide__slide > div {
+		max-width: 80%; /* Define uma largura máxima para os slides */
+		margin: 0 auto; /* Centraliza o slide */
+	}
 }

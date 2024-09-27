@@ -17,7 +17,6 @@ function App() {
 					</LogoWrapper>
 					<Search />
 				</Nav>
-				{/* <Search /> */}
 				<Category />
 				<Pages />
 				<Footer />
@@ -43,6 +42,12 @@ const Nav = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 48px;
+	}
+
 	svg {
 		font-size: 2rem;
 	}

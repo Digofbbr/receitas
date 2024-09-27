@@ -40,6 +40,16 @@ function Popular() {
 						pagination: false,
 						drag: "free",
 						gap: "5rem",
+						breakpoints: {
+							900: {
+								perPage: 2,
+								gap: "2rem",
+								padding: { left: "5%", right: "5%" },
+							},
+							580: {
+								perPage: 1,
+							},
+						},
 					}}
 				>
 					{popular.map((recipe) => {
@@ -99,6 +109,12 @@ function Popular() {
 
 const Wrapper = styled.div`
 	margin: 4rem 0rem;
+
+	@media (max-width: 768px) {
+		h3 {
+			text-align: center;
+		}
+	}
 `;
 
 const Card = styled.div`

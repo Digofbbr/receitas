@@ -41,6 +41,12 @@ const List = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 2rem 0rem;
+
+	@media (max-width: 700px) {
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		margin-top: 1rem;
+	}
 `;
 
 const SLink = styled(NavLink)`
@@ -57,6 +63,14 @@ const SLink = styled(NavLink)`
 	cursor: pointer;
 	transform: scale(0.8);
 	transition: transform 0.3s ease, transform 0.5s ease-in-out;
+
+	@media (min-width: 768px) and (max-width: 980px) {
+		margin-right: 1rem;
+	}
+
+	@media (max-width: 767px) {
+		margin-right: 0;
+	}
 
 	h4 {
 		margin-top: 5px;
