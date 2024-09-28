@@ -3847,11 +3847,14 @@ function Recipe() {
 						)}
 					</div>
 					{test.cuisines.length > 0 && (
-						<CuisineSection>
-							{test.cuisines.map((cuisine) => (
-								<p>{cuisine}</p>
-							))}
-						</CuisineSection>
+						<CuisineSectionWrapper>
+							<h5>Cuisines:</h5>
+							<CuisineSection>
+								{test.cuisines.map((cuisine) => (
+									<p>{cuisine}</p>
+								))}
+							</CuisineSection>
+						</CuisineSectionWrapper>
 					)}
 
 					<ul className="icons-info">
@@ -3965,6 +3968,11 @@ const DetailWrapper = styled(motion.div)`
 		border-radius: 10px;
 		object-fit: cover;
 		max-width: 50%;
+
+		@media (max-width: 600px) {
+			width: clamp(260px, 60%, 400px);
+			max-width: none;
+		}
 	}
 	li {
 		font-size: 1.2rem;
@@ -3978,6 +3986,14 @@ const DetailWrapper = styled(motion.div)`
 const ImageAndInfo = styled.div`
 	display: flex;
 	gap: 5rem;
+
+	@media (max-width: 1024px) {
+		gap: 2rem;
+	}
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
 `;
 
 const Button = styled.button`
@@ -3988,16 +4004,34 @@ const Button = styled.button`
 	font-weight: 600;
 	margin-right: 2rem;
 	cursor: pointer;
+
+	@media (max-width: 400px) {
+		&:first-child {
+			margin-bottom: 30px;
+		}
+	}
 `;
 
 const Info = styled(motion.div)`
 	margin-top: 5rem;
+
+	@media (max-width: 600px) {
+		margin-top: 2rem;
+
+		h3 {
+			font-size: clamp(1rem, 50%, 2rem);
+		}
+	}
 `;
 
 const RecipeInfo = styled.div`
 	.pills-tag {
 		display: flex;
 		gap: 15px;
+
+		@media (max-width: 768px) {
+			gap: 10px;
+		}
 	}
 
 	.tag {
@@ -4009,6 +4043,11 @@ const RecipeInfo = styled.div`
 		color: #333;
 		border-radius: 100px;
 		font-weight: 600;
+
+		@media (max-width: 768px) {
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	.tag--vegetarian {
@@ -4028,6 +4067,13 @@ const RecipeInfo = styled.div`
 		gap: 30px;
 		list-style: none;
 		padding: 0;
+
+		@media (max-width: 1024px) {
+			li {
+				font-size: 1rem;
+			}
+		}
+
 		.meal-attribute {
 			display: flex;
 			align-items: center;
@@ -4044,7 +4090,23 @@ const RecipeInfo = styled.div`
 	}
 `;
 
-const CuisineSection = styled.div``;
+const CuisineSectionWrapper = styled.div`
+	margin-top: 24px;
+	margin-bottom: 10px;
+	h5 {
+		font-size: 16px;
+	}
+`;
+
+const CuisineSection = styled.div`
+	margin-top: 5px;
+	display: flex;
+	gap: 15px;
+	p {
+		font-size: 14px;
+		font-style: italic;
+	}
+`;
 
 const WineSection = styled.div`
 	margin-top: 2rem;
