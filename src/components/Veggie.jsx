@@ -82,15 +82,17 @@ function Veggie() {
 														<strong>{recipe.readyInMinutes}</strong> minutes
 													</span>
 												</li>
-												<li className="meal-attribute star-wrapper">
-													<FaRegStar className="star" />
-													<span>
-														Spoon Score:{" "}
-														<strong>
-															{recipe.spoonacularScore.toFixed(2)}
-														</strong>
-													</span>
-												</li>
+												{recipe.spoonacularScore && 
+													<li className="meal-attribute star-wrapper">
+														<FaRegStar className="star" />
+														<span>
+															Spoon Score:{" "}
+															<strong>
+																{recipe.spoonacularScore.toFixed(2)}
+															</strong>
+														</span>
+													</li>
+												}
 											</ul>
 										</div>
 									</Link>
