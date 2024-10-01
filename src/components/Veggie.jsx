@@ -82,7 +82,7 @@ function Veggie() {
 														<strong>{recipe.readyInMinutes}</strong> minutes
 													</span>
 												</li>
-												{recipe.spoonacularScore && 
+												{recipe.spoonacularScore && (
 													<li className="meal-attribute star-wrapper">
 														<FaRegStar className="star" />
 														<span>
@@ -92,7 +92,7 @@ function Veggie() {
 															</strong>
 														</span>
 													</li>
-												}
+												)}
 											</ul>
 										</div>
 									</Link>
